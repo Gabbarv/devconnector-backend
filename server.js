@@ -4,6 +4,11 @@ const bodyParser= require("body-parser");
 const path = require("path")
 const dotenv = require("dotenv")
 const cors = require("cors")
+const authRoutes = require("./routes/api/auth")
+const postRoutes = require("./routes/api/posts")
+const profileRoutes = require("./routes/api/profile")
+const userRoutes = require("./routes/api/user");
+const auth = require("./middleware/auth");
 
 dotenv.config();
 
@@ -15,10 +20,10 @@ app.use(bodyParser.json({extended: true}));
 app.use(cors())
 
 
-app.use("/api/users", require("./routes/api/user"));
-app.use("/api/posts", require("./routes/api/posts"));
-app.use("/api/auth", require("./routes/api/auth"));
-app.use("/api/profile", require("./routes/api/profile"));
+app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/profile",profileRoutes);
 
 // if (process.env.NODE_ENV === 'production') {
 //     // Set static folder
