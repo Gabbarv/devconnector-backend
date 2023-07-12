@@ -11,6 +11,11 @@ const User = require("../../models/User");
 
 const router = express.Router();
 
+
+router.get("/check", async (req,res) => {
+         res.send("server running")
+})
+
 router.get("/", auth, async (req,res) => {
     try {
         const user = await User.findById(req.user.id).select("-password");
