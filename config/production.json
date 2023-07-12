@@ -1,0 +1,4 @@
+{
+    "jwtSecret": "gkkggkkg",
+    "MONGO_URI":  "mongodb+srv://gauravv:gkkggkkg@cluster0.jb0qq.mongodb.net/userDB"
+}
